@@ -201,7 +201,7 @@ const input = [
   1715,
 ];
 
-const twoSum = (arr, sum) => {
+export const twoSum = (arr: number[], sum: number): number[] | -1 => {
   const map = {};
   for (let i = 0; i < arr.length; i++) {
     if (map[sum - arr[i]]) {
@@ -212,7 +212,7 @@ const twoSum = (arr, sum) => {
   return -1;
 };
 
-const threeSum = (arr, sum) => {
+export const threeSum = (arr: number[], sum: number): number[] | -1 => {
   for (let i = 0; i < arr.length; i++) {
     const indices = twoSum(arr, sum - arr[i]);
     if (indices !== -1 && !indices.includes(i)) {
@@ -222,8 +222,8 @@ const threeSum = (arr, sum) => {
   return -1;
 };
 
-const getProduct = (indexes, input) =>
-  indexes.reduce((a, b) => a * input[b], 1);
+export const getProduct = (indexes: number[] | -1, input: number[]) =>
+  Array.isArray(indexes) ? indexes.reduce((a, b) => a * input[b], 1) : -1;
 
 const challenge1 = getProduct(twoSum(input, 2020), input);
 console.log("challenge1: ", challenge1);
